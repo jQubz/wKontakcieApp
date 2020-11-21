@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     requestPermissions(new String[] { Manifest.permission.RECORD_AUDIO}, 0);
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
+                    requestPermissions(new String[]{ Manifest.permission.CAMERA }, 1);
                 }
             }
         });
