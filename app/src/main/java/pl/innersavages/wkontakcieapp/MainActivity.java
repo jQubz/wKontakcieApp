@@ -1,7 +1,9 @@
 package pl.innersavages.wkontakcieapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,7 +28,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPermissionRequest(PermissionRequest request) {
                 request.grant(request.getResources());
-//                super.onPermissionRequest(request);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[] { Manifest.permission.RECORD_AUDIO}, 0);
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
+                }
             }
         });
 
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
 
     }
+
 
     @Override
     public void onBackPressed() {
